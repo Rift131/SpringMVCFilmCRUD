@@ -21,7 +21,7 @@ public class FilmController {
 			try {
 				int filmId= Integer.parseInt(s);
 				Film filmById=dao.findFilmById(filmId);
-				mv.setViewName("/WEB-INF/SearchById.jsp");
+				mv.setViewName("/WEB-INF/FilmById.jsp");
 				mv.addObject("result", filmById);
 				return mv;
 				
