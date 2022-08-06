@@ -347,19 +347,19 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		return film;
 	}
 
-	public boolean deleteFilm(Film film) {
+	public boolean deleteFilm(int filmId) {
 		Connection conn = null;
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
 			conn.setAutoCommit(false); // START TRANSACTION
 			String sql = "DELETE FROM film_actor WHERE film_id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, film.getId());
+			stmt.setInt(1, filmId);
 
 			int updateCount = stmt.executeUpdate();
 			sql = "DELETE FROM film WHERE id = ?";
 			stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, film.getId());
+			stmt.setInt(1, filmId);
 			updateCount = stmt.executeUpdate();
 			conn.commit(); // COMMIT TRANSACTION
 		} catch (SQLException sqle) {
