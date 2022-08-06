@@ -1,4 +1,4 @@
-package com.skilldistillery.filmquery.entities;
+package com.skilldistillery.filmquery.data;
 
 import java.util.List;
 import java.util.Objects;

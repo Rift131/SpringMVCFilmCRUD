@@ -1,10 +1,7 @@
-package com.skilldistillery.filmquery.database;
+package com.skilldistillery.filmquery.data;
 
 import java.sql.SQLException;
 import java.util.List;
-
-import com.skilldistillery.filmquery.entities.Actor;
-import com.skilldistillery.filmquery.entities.Film;
 
 public interface DatabaseAccessor {
 	public Film findFilmById(int filmId) throws SQLException;

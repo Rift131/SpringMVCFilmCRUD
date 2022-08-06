@@ -1,13 +1,9 @@
-package com.skilldistillery.filmquery.app;
+package com.skilldistillery.filmquery.data;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-import com.skilldistillery.filmquery.database.DatabaseAccessor;
-import com.skilldistillery.filmquery.database.DatabaseAccessorObject;
-import com.skilldistillery.filmquery.entities.Film;
 
 public class FilmQueryApp {
 
