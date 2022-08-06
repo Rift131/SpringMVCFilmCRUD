@@ -151,8 +151,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		
 	}
 	
-	public List<String> findFilmCategory(int id) throws SQLException{
-		List<String> category= new ArrayList<>();
+	public String findFilmCategory(int id) throws SQLException{
+		String category="";
 		
 		Connection conn = DriverManager.getConnection(URL, user, pass);
 
@@ -171,7 +171,7 @@ if (rs.next()) {
 //				+ rs.getString("rating") + " " + rs.getString("description"));
 //		System.out.println(
 //				rs.getString("a.id") + " " + rs.getString("first_name") + " " + rs.getString("last_name"));
-		category.add(rs.getString("c.name"));
+		category=rs.getString("c.name");
 
 	} while (rs.next());
 }
