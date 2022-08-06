@@ -29,6 +29,11 @@
 		</c:otherwise>
 
 	</c:choose>
+<form action="deleteFilm.do" method="POST">
+<input type="hidden" value="${result.id}" name="DeleteThisFilm" />
+<input type="submit" value="delete"/>
+   </form>
+
 <a href="Index.html">Back to home</a>
 	<p></p>
 </body>

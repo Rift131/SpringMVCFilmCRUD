@@ -80,11 +80,14 @@ public class FilmController {
 		return mv;
 	}
 	@RequestMapping("deleteFilm.do")
-	public ModelAndView deleteFilm(@RequestParam("data") String s) {
-		String allCaps = s.toUpperCase();
+	public ModelAndView deleteFilm(@RequestParam("DeleteThisFilm") String s) {
+		int filmId = Integer.parseInt(s);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/WEB-INF/deleteFilm.jsp");
-		mv.addObject("result", allCaps);
+		mv.setViewName("NoDelete");
+		
+		if (dao.deleteFilm(filmId)) {
+			mv.setViewName("deleteFilm");
+		} 
 		return mv;
 	}
 	@RequestMapping("updateFilm.do")
