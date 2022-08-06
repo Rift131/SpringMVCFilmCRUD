@@ -15,22 +15,24 @@ import com.skilldistillery.filmquery.data.Film;
 public class FilmController {
 	@Autowired
 	private DatabaseAccessorObject dao;
-	@RequestMapping("searchById.do")
-	 public ModelAndView searchById(@RequestParam("data") String s) {
+	@RequestMapping("SearchById.do")
+	 public ModelAndView searchById(String data) {
 		ModelAndView mv = new ModelAndView();
 			try {
-				int filmId= Integer.parseInt(s);
+				int filmId= Integer.parseInt(data);
 				Film filmById=dao.findFilmById(filmId);
-				mv.setViewName("/WEB-INF/SearchById.jsp");
+				mv.setViewName("FilmById");
 				mv.addObject("result", filmById);
 				return mv;
 				
 			} catch (NumberFormatException e) {
+				mv.setViewName("Error");
 				//Hey that wasn't a number!
 			} catch(NullPointerException e) {
+				mv.setViewName("Error");
 				//hey that was null!
 			} catch (SQLException e) {
-				e.printStackTrace();
+				mv.setViewName("Error");
 			}
 			return mv;
 		

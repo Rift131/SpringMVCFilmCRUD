@@ -11,7 +11,7 @@
 	Display film:
 	<c:choose>
 
-		<c:when test="${empty filmById }">
+		<c:when test="${empty result }">
 			<h2>No film found</h2>
 		</c:when>
 
@@ -19,17 +19,17 @@
 
 			<table>
 					<tr>
-						<td>${filmById.id }${filmById.title }${filmById.description } ${filmById.releaseYear }
-						${filmById.rentalDuration }${filmById.rentalRate }${filmById.length } ${filmById.replacementCost }
-						${filmById.rating }${filmById.specialFeatures }${filmById.actorList } ${filmById.language }
-						${filmById.catagory }</td>
+						<td>${result.id }${result.title }${result.description } ${result.releaseYear }
+						${result.rentalDuration }${result.rentalRate }${result.length } ${result.replacementCost }
+						${result.rating }${result.specialFeatures }${result.actorList } ${result.language }
+						${result.category }</td>
 					</tr>
 			</table>
 
 		</c:otherwise>
 
 	</c:choose>
-
+<a href="Index.html">Back to home</a>
 	<p></p>
 </body>
 </html>
