@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h2>Your film has been deleted</h2>
 
+<a href="Index.html">Back to home</a>
 </body>
 </html>
