@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h2>Error- please input the correct information</h2>
-<a href= "SearchById.html">Back to id search</a>
+<h2>Error- unrecognized entry. Please return to home page.</h2>
+<a href= "Index.html">Back to id search</a>
 </body>
 </html>
