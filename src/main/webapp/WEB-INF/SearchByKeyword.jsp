@@ -72,5 +72,7 @@
 
 	</c:choose>
 	<p></p>
+	<a href="Index.html">Back to home</a> <br>
+	
 </body>
 </html>

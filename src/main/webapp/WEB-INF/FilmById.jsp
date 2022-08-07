@@ -72,7 +72,7 @@
 	</c:choose>
 <form action="deleteFilm.do" method="POST">
 <input type="hidden" value="${result.id}" name="DeleteThisFilm" />
-<input type="submit" value="delete" class="delete"/>
+<input type="submit" value="Delete" class="delete"/>
    </form>
 <form action="updateFilm.do" method="GET">
 <input type="hidden" value="${result.id}" name="data" />
