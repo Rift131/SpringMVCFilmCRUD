@@ -11,6 +11,8 @@
   <context:component-scan base-package="com.skilldistillery.film.controllers.test"/>
   <mvc:annotation-driven/>
   
-  <bean id="stateDAO" class="com.skilldistillery.film.controllers.test.state.MockStateDAO" />
+  
+  
+<bean id="DAO" class="com.skilldistillery.film.controllers.test.state.MockDatabaseAccessorObject" />
 
 </beans>
