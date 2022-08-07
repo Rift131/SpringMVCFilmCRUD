@@ -62,7 +62,16 @@
 					<strong>RENTAL DURATION: </strong>${result.rentalDuration } <strong>   RENTAL RATE: </strong>${result.rentalRate } <strong>   REPLACEMENT COST: </strong> ${result.replacementCost }
 					</td>
 					</tr>
-					
+					<tr><td>
+					<form action="deleteFilm.do" method="POST">
+<input type="hidden" value="${result.id}" name="DeleteThisFilm" />
+<input type="submit" value="Delete" class="delete"/>
+   </form>
+<form action="updateFilm.do" method="GET">
+<input type="hidden" value="${result.id}" name="data" />
+<input type="submit" value="Update" class="update"/>
+</form>
+					</td></tr>
 					<tr><td></td></tr>					
 					<tr><td></td></tr>					
 					<tr><td></td></tr>						
