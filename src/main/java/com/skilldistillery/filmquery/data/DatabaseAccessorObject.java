@@ -369,6 +369,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		return film;
 	}
 
+	@Override
 	public boolean deleteFilm(int filmId) {
 		Connection conn = null;
 		try {
@@ -377,10 +378,11 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			String sql = "DELETE FROM film_actor WHERE film_id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, filmId);
-
+			int updateCount = stmt.executeUpdate();
 			sql = "DELETE FROM film WHERE id = ?";
 			stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, filmId);
+			updateCount = stmt.executeUpdate();
 			conn.commit(); // COMMIT TRANSACTION
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -396,6 +398,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		return true;
 	}
 
+	@Override
 	public boolean updateFilm(Film updatedFilm) {
 		Connection conn = null;
 		try {
@@ -452,7 +455,8 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		    }else {
 		    	stmt.setString(9, databaseFilm.getSpecialFeatures());
 		    }
-		 
+		    
+		    int updateCount = stmt.executeUpdate();
 		      conn.commit();           // COMMIT TRANSACTION
 		    
 		  } catch (SQLException sqle) {

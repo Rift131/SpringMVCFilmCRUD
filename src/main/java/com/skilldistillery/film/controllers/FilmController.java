@@ -98,11 +98,12 @@ public class FilmController {
 	}
 	@RequestMapping("deleteFilm.do")
 	public ModelAndView deleteFilm(@RequestParam("DeleteThisFilm") String s) {
+		System.out.println("DeleteFilm"+s);
 		int filmId = Integer.parseInt(s);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("NoDelete");
-		
 		if (dao.deleteFilm(filmId)) {
+			System.out.println("deleteFilm is true");
 			mv.setViewName("deleteFilm");
 		} 
 		return mv;
@@ -126,6 +127,7 @@ public class FilmController {
 	@RequestMapping("updateFilmForReal.do")
 	public ModelAndView updateFilm ( String title, String description, String releaseYear, String rentalDuration, String rentalRate, String length, String replacementCost, String rating, String specialfeatures) {
 
+		System.out.println("In update Film For Real");
 		ModelAndView mv = new ModelAndView();
 		int rYear = 0;
 		int rDuration = 0;
