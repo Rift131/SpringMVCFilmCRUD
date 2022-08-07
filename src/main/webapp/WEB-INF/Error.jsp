@@ -10,7 +10,7 @@
 </head>
 <body>
 
+<a href= "Index.html">Back to home</a>
 <h2>Error- unrecognized entry. Please return to home page.</h2>
-<a href= "Index.html">Back to id search</a>
 </body>
 </html>

@@ -26,13 +26,16 @@ public class FilmController {
 				Film filmById=dao.findFilmById(filmId);
 				mv.setViewName("FilmById");
 				mv.addObject("result", filmById);
+				if(filmById.equals(null)) {
+					mv.setViewName("NotFound");
+				}
 				return mv;
 				
 			} catch (NumberFormatException e) {
 				mv.setViewName("Error");
 				//Hey that wasn't a number!
 			} catch(NullPointerException e) {
-				mv.setViewName("Error");
+				mv.setViewName("NotFound");
 				//hey that was null!
 			} catch (SQLException e) {
 				mv.setViewName("Error");
@@ -44,11 +47,18 @@ public class FilmController {
 	public ModelAndView searchByKeyword(@RequestParam("data") String s) {
 		ModelAndView mv = new ModelAndView();
 		try {
+			if(s.equals("")) {
+				mv.setViewName("NotFound");
+				return mv;
+			}
 			s = "%" + s + "%";
 			List<Film> keywordFilm = dao.findFilmByKeyword(s);
 			mv.setViewName("SearchByKeyword");
 			System.out.println("FILM CONTROLLER" + keywordFilm);
 			mv.addObject("results", keywordFilm);
+			if(keywordFilm.isEmpty()) {
+				mv.setViewName("NotFound");
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
