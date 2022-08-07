@@ -6,7 +6,7 @@
  <head>
    <meta charset="UTF-8">
    <title>View</title>
-         <link rel="stylesheet" href="jspStyleSheet.css">
+         <style><%@include file="/WEB-INF/jspStyleSheet.css"%></style>
    
  </head>
 <body>
