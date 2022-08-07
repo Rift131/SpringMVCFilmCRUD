@@ -42,11 +42,17 @@ public class FilmController {
 	}
 	@RequestMapping("searchByKeyword.do")
 	public ModelAndView searchByKeyword(@RequestParam("data") String s) {
-		String allCaps = s.toUpperCase();
 		ModelAndView mv = new ModelAndView();
+		try {
+			s = "%" + s + "%";
+			List<Film> keywordFilm = dao.findFilmByKeyword(s);
+			mv.setViewName("SearchByKeyword");
+			System.out.println("FILM CONTROLLER" + keywordFilm);
+			mv.addObject("results", keywordFilm);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
-		mv.setViewName("/WEB-INF/SearchByKeyword.jsp");
-		mv.addObject("result", allCaps);
 		return mv;
 	}
 	

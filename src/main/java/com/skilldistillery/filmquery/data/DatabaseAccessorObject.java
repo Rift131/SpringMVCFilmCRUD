@@ -143,6 +143,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			int id = rs.getInt("id");
 			filmList.add(findFilmById(id));
 		}
+		System.out.println("dao ARRAYLIST" + filmList);
 		stmt.close();
 		conn.close();
 		rs.close();
