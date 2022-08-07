@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
       <link rel="stylesheet" href="jspStyleSheet.css">
-
+<style><%@include file="/WEB-INF/jspStyleSheet.css"%></style>
 </head>
 <body>
 <h2>Your film has been deleted</h2>
