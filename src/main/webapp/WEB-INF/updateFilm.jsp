@@ -5,7 +5,7 @@
 <html lang="en">
  <head>
    <meta charset="UTF-8">
-   <title>View</title>
+   <title>UpdateFilm</title>
          <style><%@include file="/WEB-INF/jspStyleSheet.css"%></style>
    
  </head>

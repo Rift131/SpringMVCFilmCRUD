@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DeleteFailed</title>
       <link rel="stylesheet" href="jspStyleSheet.css">
 <style><%@include file="/WEB-INF/jspStyleSheet.css"%></style>
 </head>
 <body>
+<a href= "Index.html">Back to home</a>
 
-<h2>Error- cannot delete from the original 1000 listed films.</h2>
-<a href= "Index.html">Back to id search</a>
+<h2>Error- Cannot delete film from the original 1000 per user story 3.</h2>
 </body>
 </html>

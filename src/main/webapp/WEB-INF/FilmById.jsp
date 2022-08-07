@@ -6,7 +6,7 @@
 <html lang="en">
  <head>
    <meta charset="UTF-8">
-   <title>View</title>
+   <title>FilmById</title>
       <link rel="stylesheet" href="jspStyleSheet.css">
    <style><%@include file="/WEB-INF/jspStyleSheet.css"%></style>
  </head>

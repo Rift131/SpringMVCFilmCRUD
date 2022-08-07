@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Error</title>
       <link rel="stylesheet" href="jspStyleSheet.css">
 <style><%@include file="/WEB-INF/jspStyleSheet.css"%></style>
 </head>

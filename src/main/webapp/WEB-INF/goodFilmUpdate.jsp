@@ -5,36 +5,49 @@
 <html lang="en">
  <head>
    <meta charset="UTF-8">
-   <title>View</title>
+   <title>FilmUpdateSuccessful</title>
    <style><%@include file="/WEB-INF/jspStyleSheet.css"%></style>
  </head>
 <body>
-	Display film:
-	<c:choose>
-
-		<c:when test="${empty result }">
-			<h2>No film found</h2>
-		</c:when>
-
-		<c:otherwise>
-
-			<table>
+	<a href="Index.html">Back to home</a>
+	<h2>Updated Film:</h2>
+	<table>
 					<tr>
-						<td>${result.id }${result.title }${result.description } ${result.releaseYear }
-						${result.rentalDuration }${result.rentalRate }${result.length } ${result.replacementCost }
-						${result.rating }${result.specialFeatures }${result.actorList } ${result.language }
-						${result.category }</td>
+					<td>
+					<strong>FILM ID: </strong> ${result.id }
+					</td>
+					</tr>
+					
+					<tr>
+						<td><strong> FILM TITLE: </strong> ${result.title }  
+						<strong> YEAR: </strong>${result.releaseYear }
+						<strong> FILM RATING: </strong>${result.rating }  
+						<strong> FILM LENGTH: </strong>${result.length } 
+						<strong> LANGUAGE: </strong> ${result.language }
+						</td> 
+					</tr>
+					<tr>
+					<td>
+					<strong> FILM DESCRIPTION: </strong>${result.description }
+					</td>
+					</tr>
+					
+					<tr>
+					<td>
+					<strong> SPECIAL FEATURES: </strong>${result.specialFeatures } 
+					</td>
+					</tr>
+					
+					<tr>
+					<td>
+					<strong>RENTAL DURATION: </strong>${result.rentalDuration } <strong>   RENTAL RATE: </strong>${result.rentalRate } <strong>   REPLACEMENT COST: </strong> ${result.replacementCost }
+					</td>
 					</tr>
 			</table>
-
-		</c:otherwise>
-
-	</c:choose>
 <form action="deleteFilm.do" method="POST">
 <input type="hidden" value="${result.id}" name="DeleteThisFilm" />
-<input type="submit" value="delete"/>
+<input type="submit" value="delete" class="delete"/>
    </form>
-<a href="Index.html">Back to home</a>
 	<p></p>
 </body>
 </html>

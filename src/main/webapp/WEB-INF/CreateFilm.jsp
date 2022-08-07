@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add a Film</title>
+<title>AddFilm</title>
       <link rel="stylesheet" href="jspStyleSheet.css">
 <style><%@include file="/WEB-INF/jspStyleSheet.css"%></style>
 </head>
