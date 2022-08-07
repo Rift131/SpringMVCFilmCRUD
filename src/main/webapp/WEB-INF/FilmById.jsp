@@ -59,7 +59,7 @@
 					
 					<tr>
 					<td>
-					<strong> RENTAL DURATION: </strong>${result.rentalDuration } <strong> RENTAL RATE: </strong>${result.rentalRate } <strong> REPLACEMENT COST: </strong> ${result.replacementCost }
+					<strong>RENTAL DURATION: </strong>${result.rentalDuration } <strong>   RENTAL RATE: </strong>${result.rentalRate } <strong>   REPLACEMENT COST: </strong> ${result.replacementCost }
 					</td>
 					</tr>
 			</table>

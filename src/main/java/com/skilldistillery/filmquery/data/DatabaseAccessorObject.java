@@ -345,7 +345,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 					film.setId(newFilmId);
 					
 					
-					System.out.println(newFilmId + "<- A CLUE!");
+					System.out.println(newFilmId + "<- SUCCESS FOR FILM ADDED!");
 
 					}
 				
@@ -363,7 +363,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 					System.err.println("Error trying to rollback");
 				}
 			}
-			throw new RuntimeException("Error inserting actor " + film);
+			//throw new RuntimeException("Error inserting actor " + film);
 		}
 		return film;
 	}
