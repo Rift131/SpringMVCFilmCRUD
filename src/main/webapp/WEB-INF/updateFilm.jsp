@@ -25,20 +25,24 @@
 			</table>
 			
 	<form action="updateFilmForReal.do" method="POST">
-		Title: <input type="text" name="title" /> <br /> Description: <input
-			type="text" name="description" /><br /> Release Year: <input
-			type="text" name="releaseYear" /><br /> Rental Duration: <input
-			type="text" name="rentalDuration" /><br /> Rental Rate:<input
-			type="text" name="rentalRate" /><br /> Film Length: <input
-			type="text" name="length" /><br /> Replacement Cost: <input
-			type="text" name="replacementCost" /></input> <br /> Film Rating:
+	
+			Title: <input type="text" name="title" /> ${result.title }<br />  
+			Description: <input type="text" name="description" />${result.description }<br />  
+			Release Year: <input type="text" name="releaseYear" />${result.releaseYear }<br /> 
+			Rental Duration: <input type="text" name="rentalDuration" />${result.rentalDuration }<br /> 
+			Rental Rate: <input type="text" name="rentalRate" />${result.rentalRate }<br />  
+			Film Length: <input type="text" name="length" />${result.length }<br /> 
+			Replacement Cost: <input type="text" name="replacementCost" /></input>${result.replacementCost } <br /> 
 			
+			
+			Current Film Rating:${result.rating }
 			<input type="radio" id="G" name= "rating" value="G"/>G
 			<input type="radio" id="PG" name= "rating" value="PG" />PG
 			<input type="radio" id="PG13" name= "rating" value="PG13" />PG-13 
 			<input type="radio" id="R" name= "rating" value="R" />R
 			<input type="radio" id="NC-17" name= "rating" value="NC-17"/>NC-17<br/>
-			Special Features:
+			
+			Special Features: ${result.specialFeatures }
 			<input type="checkbox" id="Trailers" name= "specialfeatures" value="Trailers" />Trailers 
 			<input type="checkbox" id="Commentaries" name= "specialfeatures" value="Commentaries" />Commentaries
 			<input type="checkbox" id="Deleted Scenes" name= "specialfeatures" value="Deleted Scenes" />Deleted Scenes
