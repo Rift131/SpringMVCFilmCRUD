@@ -128,8 +128,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		
 		for (Actor actorArr : actorList) {
 			
-			
-			
 			String space = ", ";
 			//actor = new Actor(actorID, firstName, lastName);
 			actors.append(actorArr);
