@@ -15,6 +15,7 @@ import com.skilldistillery.filmquery.data.Film;
 
 @Controller
 public class FilmController {
+	private static int updatedFilmId;
 	@Autowired
 	private DatabaseAccessorObject dao;
 	@RequestMapping("SearchById.do")
@@ -92,10 +93,65 @@ public class FilmController {
 	}
 	@RequestMapping("updateFilm.do")
 	public ModelAndView updateFilm(@RequestParam("data") String s) {
-		String allCaps = s.toUpperCase();
+		int filmId = Integer.parseInt(s);
+		updatedFilmId = filmId;
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/WEB-INF/updateFilm.jsp");
-		mv.addObject("result", allCaps);
+		Film filmById;
+		try {
+			filmById = dao.findFilmById(filmId);
+			mv.setViewName("updateFilm");
+			mv.addObject("result", filmById);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return mv;
+		
+	}
+	@RequestMapping("updateFilmForReal.do")
+	public ModelAndView updateFilm ( String title, String description, String releaseYear, String rentalDuration, String rentalRate, String length, String replacementCost, String rating, String specialfeatures) {
+
+		ModelAndView mv = new ModelAndView();
+		int rYear = 0;
+		int rDuration = 0;
+		double rRate = 0;
+		double rCost = 0;
+		int rLength = 0;
+		try {
+			if(releaseYear != null && !releaseYear.isEmpty()) {
+				rYear= Integer.parseInt(releaseYear);
+			}
+			if(rentalDuration != null && !rentalDuration.isEmpty()) {
+			rDuration= Integer.parseInt(rentalDuration);
+			}
+			if(rentalRate != null && !rentalRate.isEmpty()) {
+			 rRate= Double.parseDouble(rentalRate);
+			}
+			if(length != null && !length.isEmpty()) {
+			rLength= Integer.parseInt(length);
+			}
+			if(replacementCost != null && !replacementCost.isEmpty()) {
+			rCost= Double.parseDouble(replacementCost);
+			}
+			
+			Film film = new Film(updatedFilmId, title, description, rYear, 1, rDuration, rRate, rLength, rCost, rating, specialfeatures);
+			
+			if(dao.updateFilm(film)){
+				Film newFilm = dao.findFilmById(updatedFilmId);
+				mv.setViewName("goodFilmUpdate");
+				mv.addObject("result", newFilm);
+			}
+			return mv;
+			
+		} catch (NumberFormatException e) {
+			mv.setViewName("Error");
+			//Hey that wasn't a number!
+		} catch(NullPointerException e) {
+			mv.setViewName("Error");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			//hey that was null!
 		return mv;
 	}
 

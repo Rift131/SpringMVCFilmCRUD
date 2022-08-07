@@ -376,4 +376,81 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		return true;
 	}
 
+	public boolean updateFilm(Film updatedFilm) {
+		Connection conn = null;
+		try {
+			Film databaseFilm = findFilmById(updatedFilm.getId());
+		    conn = DriverManager.getConnection(URL, user, pass);
+		    conn.setAutoCommit(false); // START TRANSACTION
+		    String sql = "UPDATE film SET title=?, description=?, release_year=?, rental_duration=?, rental_rate=?, length=?, replacement_cost=?, rating=?, special_features=? "
+		               + " WHERE id=?";
+		    PreparedStatement stmt = conn.prepareStatement(sql);
+		    stmt.setInt(10, updatedFilm.getId());
+		    
+		    if(updatedFilm.getTitle() != null && !updatedFilm.getTitle().isEmpty() ) {
+		    	stmt.setString(1, updatedFilm.getTitle());
+		    }else {
+		    	stmt.setString(1, databaseFilm.getTitle());
+		    }
+		    if(updatedFilm.getDescription() != null && !updatedFilm.getDescription().isEmpty() ) {
+		    	stmt.setString(2, updatedFilm.getDescription());
+		    }else {
+		    	stmt.setString(2, databaseFilm.getDescription());
+		    }
+		    if(updatedFilm.getReleaseYear() > 0 ) {
+		    	stmt.setInt(3, updatedFilm.getReleaseYear());
+		    }else {
+		    	stmt.setInt(3, databaseFilm.getReleaseYear());
+		    }
+		    if(updatedFilm.getRentalDuration() > 0 ) {
+		    	stmt.setInt(4, updatedFilm.getRentalDuration());
+		    }else {
+		    	stmt.setInt(4, databaseFilm.getRentalDuration());
+		    }
+		    if(updatedFilm.getRentalDuration() > 0 ) {
+		    	stmt.setDouble(5, updatedFilm.getRentalRate());
+		    }else {
+		    	stmt.setDouble(5, databaseFilm.getRentalRate());
+		    }
+		    if(updatedFilm.getLength() > 0 ) {
+		    	stmt.setInt(6, updatedFilm.getLength());
+		    }else {
+		    	stmt.setInt(6, databaseFilm.getLength());
+		    }
+		    if(updatedFilm.getReplacementCost() > 0 ) {
+		    	stmt.setDouble(7, updatedFilm.getReplacementCost());
+		    }else {
+		    	stmt.setDouble(7, databaseFilm.getReplacementCost());
+		    }
+		    if(updatedFilm.getRating() != null && !updatedFilm.getRating().isEmpty() ) {
+		    	stmt.setString(8, updatedFilm.getRating());
+		    }else {
+		    	stmt.setString(8, databaseFilm.getRating());
+		    }
+		    if(updatedFilm.getSpecialFeatures() != null && !updatedFilm.getSpecialFeatures().isEmpty() ) {
+		    	stmt.setString(9, updatedFilm.getSpecialFeatures());
+		    }else {
+		    	stmt.setString(9, databaseFilm.getSpecialFeatures());
+		    }
+		 
+			
+		    int updateCount = stmt.executeUpdate();
+		   
+		     
+		      conn.commit();           // COMMIT TRANSACTION
+		    
+		  } catch (SQLException sqle) {
+		    sqle.printStackTrace();
+		    if (conn != null) {
+		      try { conn.rollback(); } // ROLLBACK TRANSACTION ON ERROR
+		      catch (SQLException sqle2) {
+		        System.err.println("Error trying to rollback");
+		      }
+		    }
+		    return false;
+		  }
+		  return true;	
+		}
+	
+	
 }

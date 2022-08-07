@@ -33,10 +33,6 @@
 <input type="hidden" value="${result.id}" name="DeleteThisFilm" />
 <input type="submit" value="delete"/>
    </form>
-<form action="updateFilm.do" method="GET">
-<input type="hidden" value="${result.id}" name="data" />
-<input type="submit" value="Update"/>
-</form>
 <a href="Index.html">Back to home</a>
 	<p></p>
 </body>
