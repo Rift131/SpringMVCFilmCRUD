@@ -87,13 +87,12 @@ public class FilmController {
 			mv.addObject("result", newFilm);
 			return mv;
 			
-		} catch (NumberFormatException e) {
-			mv.setViewName("Error");
-			//Hey that wasn't a number!
 		} catch(NullPointerException e) {
-			mv.setViewName("Error");
+			mv.setViewName("CreateFieldsEmpty");
+		
+		} catch (NumberFormatException e) {
+			mv.setViewName("CreateFieldsEmpty");
 		}
-			//hey that was null!
 		return mv;
 	}
 	@RequestMapping("deleteFilm.do")
