@@ -6,6 +6,8 @@
  <head>
    <meta charset="UTF-8">
    <title>View</title>
+         <style><%@include file="/WEB-INF/jspStyleSheet.css"%></style>
+   
  </head>
 <body>
 <a href="Index.html">Back to home</a> <br>

@@ -6,6 +6,8 @@
  <head>
    <meta charset="UTF-8">
    <title>View</title>
+         <link rel="stylesheet" href="jspStyleSheet.css">
+   
  </head>
  <body>
    <p>The result is: ${result}.0</p>

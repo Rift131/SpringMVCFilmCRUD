@@ -7,6 +7,8 @@
  <head>
    <meta charset="UTF-8">
    <title>View</title>
+      <link rel="stylesheet" href="jspStyleSheet.css">
+   
  </head>
 <body>
 <a href="Index.html">Back to home</a>
@@ -70,11 +72,11 @@
 	</c:choose>
 <form action="deleteFilm.do" method="POST">
 <input type="hidden" value="${result.id}" name="DeleteThisFilm" />
-<input type="submit" value="delete"/>
+<input type="submit" value="delete" class="delete"/>
    </form>
 <form action="updateFilm.do" method="GET">
 <input type="hidden" value="${result.id}" name="data" />
-<input type="submit" value="Update"/>
+<input type="submit" value="Update" class="update"/>
 </form>
 	<p></p>
 </body>

@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+h1{
+text-align: center;
+color: #626262;
+font-size: 60px;
+}
+body{
+	
+ background-color: #72a6ba;
+}
+form{
+	font-size: 20px;
+	text-align:center;
+	color: #33FF99;
+}
+a{
+	text-align: left;
+	color: #33FF99;
+	font-size: 30px;
+}
+a:hover {
+  color: #626262;
+}
+
+.button{
+	background-color: #626262; /* Green */  
+	border: 1px solid #33FF99;
+	color: #33FF99;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.delete{
+	background-color: red; /* Green */  
+	border: 1px solid #626262;
+	color: #626262;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+}
+
+.update{
+	background-color: #33FF99; /* Green */  
+	border: 1px solid #626262;
+	color: #626262;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+}
