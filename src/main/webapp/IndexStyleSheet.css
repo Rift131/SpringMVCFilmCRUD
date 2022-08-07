@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+h1{
+text-align: center;
+color: #626262;
+}
+body {
+	text-align:center;
+	color: #33FF99;
+/* background-color: #33FF99; */
+background-image: url("https://media.istockphoto.com/vectors/film-projector-vector-id601921966?k=20&m=601921966&s=170667a&w=0&h=Ju-Azqbogslt5LpSKSDvb7HN17Oxh8Z8UR4AkK9DBsg=");
+  height: 100%;
+background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+a{
+	color: #33FF99;
+	font-size: 40px;
+	border: 1px solid blue;
+}
