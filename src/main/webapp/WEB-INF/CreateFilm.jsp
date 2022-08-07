@@ -6,6 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Add a Film</title>
+      <link rel="stylesheet" href="jspStyleSheet.css">
+
 </head>
 <body>
 	<a href="Index.html">Back to home</a>
