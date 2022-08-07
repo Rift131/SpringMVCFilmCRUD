@@ -19,6 +19,14 @@ public class Actor {
 	public Actor() {
 		super();
 	}
+	
+	
+
+	public Actor(String firstName, String lastName) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 
 	public int getId() {
 		return Id;
@@ -73,7 +81,7 @@ public class Actor {
 
 	@Override
 	public String toString() {
-		return "Actor [Id=" + Id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+		return firstName + " " + lastName;
 	}
 	
 	

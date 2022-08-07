@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html lang="en">
  <head>
@@ -8,7 +9,10 @@
    <title>View</title>
  </head>
 <body>
-	Display film:
+<a href="Index.html">Back to home</a>
+    <br></br>
+	<h1>Your Film</h1>
+	<br></br>
 	<c:choose>
 
 		<c:when test="${empty result }">
@@ -18,13 +22,48 @@
 		<c:otherwise>
 
 			<table>
+					
 					<tr>
-						<td>Film Id: ${result.id } Title: ${result.title } Description:${result.description } Year: ${result.releaseYear }
-						Rental Duration: ${result.rentalDuration } Rental Rate: ${result.rentalRate }${result.length } Replacement Cost: ${result.replacementCost }
-						Rating: ${result.rating } Special Features: ${result.specialFeatures } Actor List:${result.actorList } Language: ${result.language }
-						Catagory: ${result.category }</td>
+					<td>
+					<strong>FILM ID: </strong> ${result.id }
+					</td>
+					</tr>
+					
+					<tr>
+						<td><strong> FILM TITLE: </strong> ${result.title }  
+						<strong> YEAR: </strong>${result.releaseYear }
+						<strong> FILM CATEGORY: </strong> ${result.category }
+						<strong> FILM RATING: </strong>${result.rating }  
+						<strong> FILM LENGTH: </strong>${result.length } 
+						<strong> LANGUAGE: </strong> ${result.language }
+						</td> 
+					</tr>
+					<tr>
+					<td>
+					<strong> FILM DESCRIPTION: </strong>${result.description }
+					</td>
+					</tr>
+					
+					<tr>
+					<td>
+					<strong> FILM ACTORS: </strong>${result.actors }
+					
+					</td>
+					</tr>
+					
+					<tr>
+					<td>
+					<strong> SPECIAL FEATURES: </strong>${result.specialFeatures } 
+					</td>
+					</tr>
+					
+					<tr>
+					<td>
+					<strong> RENTAL DURATION: </strong>${result.rentalDuration } <strong> RENTAL RATE: </strong>${result.rentalRate } <strong> REPLACEMENT COST: </strong> ${result.replacementCost }
+					</td>
 					</tr>
 			</table>
+					<br></br>
 
 		</c:otherwise>
 
@@ -37,7 +76,6 @@
 <input type="hidden" value="${result.id}" name="data" />
 <input type="submit" value="Update"/>
 </form>
-<a href="Index.html">Back to home</a>
 	<p></p>
 </body>
 </html>
