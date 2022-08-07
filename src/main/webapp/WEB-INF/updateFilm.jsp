@@ -12,7 +12,7 @@
  
  
  <a href="Index.html">Back to home</a>
-	
+	<h2>Update Film:</h2>
 	<table>
 					<tr>
 						<td>${result.id }${result.title }${result.description } ${result.releaseYear }
@@ -31,18 +31,16 @@
 			type="text" name="length" /><br /> Replacement Cost: <input
 			type="text" name="replacementCost" /></input> <br /> Film Rating:
 			
-			<br></br>
-			
-			<input type="radio" id="G" name= "rating" value="G"/>G<br><br/> 
-			<input type="radio" id="PG" name= "rating" value="PG" />PG<br></br> 
-			<input type="radio" id="PG13" name= "rating" value="PG13" />PG-13<br></br>  
-			<input type="radio" id="R" name= "rating" value="R" />R<br></br> 
-			<input type="radio" id="NC-17" name= "rating" value="NC-17"/>NC-17<br></br> 
-			
-			<input type="checkbox" id="Trailers" name= "specialfeatures" value="Trailers" />Trailers <br></br> 
-			<input type="checkbox" id="Commentaries" name= "specialfeatures" value="Commentaries" />Commentaries<br></br>  
-			<input type="checkbox" id="Deleted Scenes" name= "specialfeatures" value="Deleted Scenes" />Deleted Scenes<br></br> 
-			<input type="checkbox" id="Behind the Scenes" name= "specialfeatures" value="Behind the Scenes" />Behind the Scenes<br></br>  
+			<input type="radio" id="G" name= "rating" value="G"/>G
+			<input type="radio" id="PG" name= "rating" value="PG" />PG
+			<input type="radio" id="PG13" name= "rating" value="PG13" />PG-13 
+			<input type="radio" id="R" name= "rating" value="R" />R
+			<input type="radio" id="NC-17" name= "rating" value="NC-17"/>NC-17<br/>
+			Special Features:
+			<input type="checkbox" id="Trailers" name= "specialfeatures" value="Trailers" />Trailers 
+			<input type="checkbox" id="Commentaries" name= "specialfeatures" value="Commentaries" />Commentaries
+			<input type="checkbox" id="Deleted Scenes" name= "specialfeatures" value="Deleted Scenes" />Deleted Scenes
+			<input type="checkbox" id="Behind the Scenes" name= "specialfeatures" value="Behind the Scenes" />Behind the Scenes  
 			
 			<br></br>
 			
