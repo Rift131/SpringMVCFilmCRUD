@@ -136,7 +136,10 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			actors.append(space);
 		
 		}
+		
+		if (actors.length() > 0) {
 		actors.replace(actors.length() -2, actors.length(), ".");
+		}
 		
 		
 		
