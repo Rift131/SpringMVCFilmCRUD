@@ -3,6 +3,7 @@
 h1{
 text-align: center;
 color: #626262;
+font-size: 60px;
 }
 body {
 	text-align:center;
@@ -17,5 +18,7 @@ background-position: top;
 a{
 	color: #33FF99;
 	font-size: 40px;
-	border: 1px solid blue;
+}
+a:hover {
+  color: #626262;
 }
