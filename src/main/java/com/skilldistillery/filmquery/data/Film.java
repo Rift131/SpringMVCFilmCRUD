@@ -16,12 +16,23 @@ public class Film {
 	private String rating;
 	private String specialFeatures;
 	private List<Actor> actorList;
+	private StringBuilder actors;
 	private String language;
 	private String category;
 	
 	
 	
 	
+
+
+	public StringBuilder getActors() {
+		return actors;
+	}
+
+
+	public void setActors(StringBuilder actors) {
+		this.actors = actors;
+	}
 
 
 	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
@@ -70,7 +81,7 @@ public class Film {
 
 	public Film(int id, String title, String description, int releaseYear, int languageId, int rentalDuration,
 			double rentalRate, int length, double replacementCost, String rating, String specialFeatures,
-			List<Actor> actorList, String language, String category) {
+			StringBuilder stringBuilder, String language, String category) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -83,7 +94,7 @@ public class Film {
 		this.replacementCost = replacementCost;
 		this.rating = rating;
 		this.specialFeatures = specialFeatures;
-		this.actorList = actorList;
+		this.actors = stringBuilder;
 		this.language = language;
 		this.category = category;
 	}
@@ -215,8 +226,8 @@ public class Film {
 	}
 	@Override
 	public String toString() {
-		return "\n Film: title=" + title + ", releaseYear=" + releaseYear +", rating=" + rating+", description=" + description
-				 + ",\n language=" + language +",\n actorList=" + actorList + "]";
+		return "\n FILM TITLE: " + title + " YEAR: " + releaseYear +" RATING: " + rating + " LANGUAGE: " + language + " CATEGORY: " + category + "\n" + "DESCRIPTION: " + description
+				 + "\nACTOR LIST: " + actorList;
 	}
 	
 	

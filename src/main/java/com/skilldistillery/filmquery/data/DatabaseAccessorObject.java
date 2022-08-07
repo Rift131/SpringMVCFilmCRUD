@@ -40,7 +40,7 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 //						+ rs.getString("rating") + " " + rs.getString("description") + " " + rs.getString("name"));
 				int filmID = rs.getInt("id");
 				String title = rs.getString("title");
-				String desc = rs.getString("description");
+				String desc = rs.getString("description") + ".";
 				short releaseYear = rs.getShort("release_year");
 				int langId = rs.getInt("language_id");
 				int rentDur = rs.getInt("rental_duration");
@@ -94,9 +94,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 	}
 
 	@Override
-	public List<Actor> findActorsByFilmId(int filmId) throws SQLException {
+	public StringBuilder findActorsByFilmId(int filmId) throws SQLException {
 		List<Actor> actorList = new ArrayList<>();
-
+		StringBuilder actors = new StringBuilder();
 		Connection conn = DriverManager.getConnection(URL, user, pass);
 
 		String sql = "SELECT f.*, a.* FROM film f JOIN film_actor fa ON f.id=fa.film_id JOIN actor a ON fa.actor_id=a.id WHERE f.id=?";
@@ -105,26 +105,48 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		stmt.setInt(1, filmId);
 		ResultSet rs = stmt.executeQuery();
 		Actor actor = null;
-		if (rs.next()) {
+		while (rs.next()) {
 			// This do while loop is probably useless because there will only be one result
 			do {
+			//	int actorID = rs.getInt("a.id");
+				String firstName = rs.getString("first_name");
+				String lastName = rs.getString("last_name");
+
+				actor = new Actor(firstName, lastName);
+				actorList.add(actor);
+
+
 				// doesn't show what language the film is in
 //				System.out.println(rs.getString("title") + " " + rs.getString("release_year") + " "
 //						+ rs.getString("rating") + " " + rs.getString("description"));
 //				System.out.println(
 //						rs.getString("a.id") + " " + rs.getString("first_name") + " " + rs.getString("last_name"));
-				int actorID = rs.getInt("a.id");
-				String firstName = rs.getString("first_name");
-				String lastName = rs.getString("last_name");
-
-				actor = new Actor(actorID, firstName, lastName);
-				actorList.add(actor);
+				//int actorID = rs.getInt("a.id");
+				
 			} while (rs.next());
 		}
+		
+		for (Actor actorArr : actorList) {
+			
+			
+			
+			String space = ", ";
+			//actor = new Actor(actorID, firstName, lastName);
+			actors.append(actorArr);
+			actors.append(space);
+		
+		}
+		actors.replace(actors.length() -2, actors.length(), ".");
+		
+		
+		
+		
+		
 		stmt.close();
 		conn.close();
 		rs.close();
-		return actorList;
+		System.out.println(actors);
+		return actors;
 	}
 
 	public List<Film> findFilmByKeyword(String keyword) throws SQLException {
@@ -276,11 +298,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			String sql = "DELETE FROM film_actor WHERE actor_id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, actor.getId());
-			int updateCount = stmt.executeUpdate();
 			sql = "DELETE FROM actor WHERE id = ?";
 			stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, actor.getId());
-			updateCount = stmt.executeUpdate();
 			conn.commit(); // COMMIT TRANSACTION
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -357,11 +377,9 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, filmId);
 
-			int updateCount = stmt.executeUpdate();
 			sql = "DELETE FROM film WHERE id = ?";
 			stmt = conn.prepareStatement(sql);
 			stmt.setInt(1, filmId);
-			updateCount = stmt.executeUpdate();
 			conn.commit(); // COMMIT TRANSACTION
 		} catch (SQLException sqle) {
 			sqle.printStackTrace();
@@ -434,10 +452,6 @@ public class DatabaseAccessorObject implements DatabaseAccessor {
 		    	stmt.setString(9, databaseFilm.getSpecialFeatures());
 		    }
 		 
-			
-		    int updateCount = stmt.executeUpdate();
-		   
-		     
 		      conn.commit();           // COMMIT TRANSACTION
 		    
 		  } catch (SQLException sqle) {
