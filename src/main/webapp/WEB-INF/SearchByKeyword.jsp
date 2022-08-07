@@ -9,7 +9,9 @@
  </head>
 <body>
 <a href="Index.html">Back to home</a> <br>
-	Display film:
+ <br></br>
+	<h1>All films matching your query...</h1><br></br>
+	
 	<c:choose>
 
 		<c:when test="${empty results }">
@@ -19,17 +21,49 @@
 		<c:otherwise>
 			<table>
 		<c:forEach var="result" items="${results}">
-					<tr>
-						<td>${result.id }${result.title }${result.description } ${result.releaseYear }
-						${result.rentalDuration }${result.rentalRate }${result.length } ${result.replacementCost }
-						${result.rating }${result.specialFeatures }${result.actorList } ${result.language }
-						${result.category }</td>
+						<tr>
+					<td>
+					<strong>FILM ID: </strong> ${result.id }
+					</td>
 					</tr>
+					
+					<tr>
+						<td><strong> FILM TITLE: </strong> ${result.title }  
+						<strong> YEAR: </strong>${result.releaseYear }
+						<strong> FILM CATEGORY: </strong> ${result.category }
+						<strong> FILM RATING: </strong>${result.rating }  
+						<strong> FILM LENGTH: </strong>${result.length } 
+						<strong> LANGUAGE: </strong> ${result.language }
+						</td> 
+					</tr>
+					
 					<tr>
 					<td>
-						-----------------------------------------------------------------
-						</td>
-						</tr>
+					<strong> FILM DESCRIPTION: </strong>${result.description }
+					</td>
+					</tr>
+					
+					<tr>
+					<td>
+					<strong> FILM ACTORS: </strong>${result.actors }
+					</td>
+					</tr>
+					
+					<tr>
+					<td>
+					<strong> SPECIAL FEATURES: </strong>${result.specialFeatures } 
+					</td>
+					</tr>
+					
+					<tr>
+					<td>
+					<strong>RENTAL DURATION: </strong>${result.rentalDuration } <strong>   RENTAL RATE: </strong>${result.rentalRate } <strong>   REPLACEMENT COST: </strong> ${result.replacementCost }
+					</td>
+					</tr>
+					
+					<tr><td></td></tr>					
+					<tr><td></td></tr>					
+					<tr><td></td></tr>						
 	</c:forEach>
 			</table>
 		</c:otherwise>
