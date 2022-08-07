@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+h1{
+text-align: center;
+color: #626262;
+font-size: 60px;
+}
+body {
+	text-align:center;
+	color: #33FF99;
+ background-color: #72a6ba;
+  height: 100%;
+background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+a{
+	color: #33FF99;
+	font-size: 40px;
+}
+a:hover {
+  color: #626262;
+}
