@@ -19,10 +19,10 @@
 
 			<table>
 					<tr>
-						<td>${result.id }${result.title }${result.description } ${result.releaseYear }
-						${result.rentalDuration }${result.rentalRate }${result.length } ${result.replacementCost }
-						${result.rating }${result.specialFeatures }${result.actorList } ${result.language }
-						${result.category }</td>
+						<td>Film Id: ${result.id } Title: ${result.title } Description:${result.description } Year: ${result.releaseYear }
+						Rental Duration: ${result.rentalDuration } Rental Rate: ${result.rentalRate }${result.length } Replacement Cost: ${result.replacementCost }
+						Rating: ${result.rating } Special Features: ${result.specialFeatures } Actor List:${result.actorList } Language: ${result.language }
+						Catagory: ${result.category }</td>
 					</tr>
 			</table>
 
